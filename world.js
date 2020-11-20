@@ -1,30 +1,45 @@
 /*1st create the code for lookup button*/
-window.addEventListener('load', function()
-//window.onload=function()
+//window.addEventListener('load', function()
+window.onload=function()
 {
 //var findCountry=document.getElementById("#lookup");
-let findCountry=document.querySelector('#lookup');
+var findCountry=document.querySelector('#lookup');
+var hrequest;
 findCountry.addEventListener('click',function(mouseEv) 
 {
+
 mouseEv.preventDefault();
-//url="http://localhost/info2180-lab5/world.php"
-        fetch("http://localhost/info2180-lab5/world.php")
-            .then(response =>
-            {
-                if (response.ok)
-                 {
-                    return response.text()
-                 } 
-                else
-                 {
-                    return Promise.reject('something went wrong!')
-                 }
-            })//end fetch
-            .then(data => {
-                let worldRes = document.querySelector('#result');
-                worldRes.innerHTML = data;
-            })//end put data @ this div
-            .catch(error => console.log('There was an error: ' + error));
-        
-    });//end of listener for click
-});//end of window loader
+
+ hrequest=new XMLHttpRequest();
+var PHPurl="world.php";/*?query="+ srchQuery */
+
+hrequest.onreadystatechange=loadCountry;
+hrequest.open("GET",PHPurl);
+hrequest.send();
+
+
+});//end of listener for click
+
+/*HANDLING THE RESPONSE TO the AJAX REQUEST */
+function loadCountry()
+{
+
+    if (hrequest.readyState===XMLHttpRequest.DONE);
+    {
+        if (hrequest.status===200)
+        {
+            var response=hrequest.responseText;
+            var country=document.querySelector("#result");
+            country.innerHTML=response;
+
+        }
+
+        else
+        {
+            alert("We're sorry. There's an issue with the request.")
+        }
+    }
+
+}
+    
+}//end of window loader

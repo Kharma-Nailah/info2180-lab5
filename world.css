@@ -1,1 +1,56 @@
 /* Add your own styles */
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  header {
+    color: white;
+    background: #303b4e;
+    text-align: center;
+    padding: 15px;
+  }
+
+  /* img
+   {
+  float: left;
+  margin: 0 10px 10px 0;
+  } */
+ 
+  #controls {
+    float: center;
+    border-radius: 6px;
+    color: #fff;
+    padding: 15px;
+    margin: 0 10px;
+    
+    /* vertically and horizontally center text inside box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+  }
+
+  #lookup
+  {
+    background-color:rgb(32, 105, 82);
+    border-radius: 4px;
+  }
+
+  #lookupCity
+  {
+    background-color:rgb(33, 89, 194);
+    border-radius: 4px;
+  }
+  
+  #result{
+    color: black;
+   /* padding: 20px 30px ;*/
+    margin: 0 0 20px;
+    font-family: Cambria, Georgia, 'Times New Roman', serif;
+    font-size: 14px;
+    background: #d1ecf1;
+  }
